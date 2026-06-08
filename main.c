@@ -21,6 +21,20 @@ void drawLine(int row, int startCol, int endCol)
         canvas[row][j] = '*';
     }
 }
+void drawRectangle(int row, int col, int height, int width)
+{
+    int i, j;
+    for(j = col; j < col + width; j++)
+    {
+        canvas[row][j] = '*';
+        canvas[row + height - 1][j] = '*';
+    }
+    for(i = row; i < row + height; i++)
+    {
+        canvas[i][col] = '*';
+        canvas[i][col + width - 1] = '*';
+    }
+}
 void displayCanvas()
 {
     int i, j;
@@ -38,6 +52,7 @@ int main()
     printf("===== 2D GRAPHICS EDITOR =====\n\n");
     initializeCanvas();
     drawLine(5, 10, 30);
+    drawRectangle(10, 5, 5, 15);
     displayCanvas();
     return 0;
 }
